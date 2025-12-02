@@ -12,12 +12,12 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
-  margin-bottom: 0px;
+  gap: 8px;
 }
 
 .mood-cassette img {
-  width: 250px;
-  height: 250px;
+  width: clamp(160px, 28vw, 240px);
+  height: auto;
   padding: 0;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .mood-cassette p {
-  font-size: 20px;
+  font-size: clamp(16px, 3.6vw, 20px);
   margin: 0;
   text-align: center;
 }

@@ -1,63 +1,85 @@
-.recommendation-container{
-    display: flex;
-    justify-content: center; 
-    align-items: center;  
-    text-align: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    color: #524438;
+.recommendation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  color: #524438;
+  padding: clamp(16px, 4vw, 32px);
 }
 
-.recommendation-info{
-    width: 500px;
-    height: 630px;
-    border-radius: 25px;
-    margin: 150px;
+.recommendation-info {
+  width: min(90vw, 520px);
+  min-height: 520px;
+  border-radius: 25px;
+  margin: clamp(40px, 6vw, 80px);
+  padding: clamp(16px, 4vw, 24px);
 }
 
 .recommendation-info img {
-    width: 150px;
-    height: 150px;
-    margin-top: 20px;
-    border-radius: 10px;
+  width: clamp(140px, 40vw, 200px);
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
 .recommendation-info h2 {
-    margin-top: 50px;
-    color: #524438;
+  margin-top: clamp(24px, 4vw, 40px);
+  color: #524438;
+  font-size: clamp(20px, 5vw, 26px);
+  padding: 0 clamp(8px, 4vw, 20px);
 }
 
-
 .save-button {
-    background-color: #9CCED9;
-    color: white;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: 500;
-    border: 5px solid #9CCED9;
+  background-color: #9cced9;
+  color: white;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  border: 4px solid #9cced9;
+  padding: 12px 20px;
+  min-width: 180px;
+  margin-top: 16px;
 }
 
 .save-button:hover {
-    background-color: #78b6c4;
-    color: #ffffff;
-    transition: all 0.3s ease-in-out;
+  background-color: #78b6c4;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
 }
 
 .close2-button {
-  background-color: none;
-  border: 5px solid #9CCED9;
-  color: #9CCED9;
-  border-radius: 5px;
+  background-color: transparent;
+  border: 4px solid #9cced9;
+  color: #9cced9;
+  border-radius: 8px;
   font-size: 18px;
   font-weight: 500;
-  margin-left: 40px;
-  width: 120px;
-
+  margin-left: clamp(12px, 4vw, 24px);
+  width: 140px;
+  padding: 12px 16px;
 }
 
 .close2-button:hover {
-    background-color: #dfdfdf;
-    color: #9CCED9;
-    transition: all 0.3s ease-in-out;
+  background-color: #dfdfdf;
+  color: #9cced9;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 540px) {
+  .recommendation-info {
+    margin: 24px 0;
+  }
+
+  .save-button,
+  .close2-button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .recommendation-info .song-details {
+    gap: 8px;
+  }
 }

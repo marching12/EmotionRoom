@@ -4,4 +4,6 @@
   align-items: flex-start;
   gap: 20px; 
   flex: 1;
+  padding: clamp(12px, 3vw, 20px);
+  flex-wrap: wrap;
 }

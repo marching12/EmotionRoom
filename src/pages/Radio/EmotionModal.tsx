@@ -6,15 +6,15 @@ import { emotionDescriptions } from '../../data/emotionDescriptions';
 interface EmotionModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onConfirm: (mood: 'joy' | 'sadness'| 'angry' |'relaxed' | 'happiness' | 'anxiety' | 'depression' | 'tiredness' ) => void;
-  mood: 'joy' | 'sadness'| 'angry' |'relaxed' | 'happiness' | 'anxiety' | 'depression' | 'tiredness' | null;
+  onConfirm: (mood: 'joy' | 'sadness' | 'angry' | 'relaxed' | 'happiness' | 'anxiety' | 'depression' | 'tiredness') => void;
+  mood: 'joy' | 'sadness' | 'angry' | 'relaxed' | 'happiness' | 'anxiety' | 'depression' | 'tiredness' | null;
 }
 
 const EmotionModal: React.FC<EmotionModalProps> = ({ isOpen, onClose, onConfirm, mood }) => {
   if (!isOpen || !mood) return null;
 
   const modalContentStyle = {
-    boxShadow: `0 10px 100px 50px ${moodColors[mood]}`
+    boxShadow: `0 10px 100px 50px ${moodColors[mood]}`,
   };
 
   return (
@@ -34,7 +34,7 @@ const EmotionModal: React.FC<EmotionModalProps> = ({ isOpen, onClose, onConfirm,
         </p>
         <div className="button-group">
           <button onClick={() => onConfirm(mood)} className="confirm-button">
-            재생하기
+            선택하기
           </button>
           <button onClick={onClose} className="close-button">
             닫기

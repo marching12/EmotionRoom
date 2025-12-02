@@ -1,75 +1,68 @@
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-.main-page{
-    display: flex;
-    justify-content: center; 
-    align-items: center;   
-    flex-direction: column;
-    min-height: 60vh;
-    margin-top: 0;
-    background-color: #FEFBF3;
-    justify-content: flex-start;
-    color: #524438;
-    
+.main-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 60vh;
+  margin-top: 0;
+  padding: clamp(16px, 4vw, 32px);
+  gap: clamp(12px, 2vw, 20px);
+  color: var(--text);
 }
 
-button{
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;  
-    flex-direction: row;
-    margin-top: 50px;
-    padding: 20px;
-    color: #524438;
-
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: clamp(16px, 4vw, 28px);
+  width: 100%;
+  max-width: 900px;
 }
 
-.radio-icon {
-    width: 200px;
-    height: 200px;
-    padding: 0;
+.buttons button {
+  background: none;
+  border: none;
+  padding: clamp(12px, 3vw, 20px);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
-.radio-icon:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
+.radio-icon,
+.cassette-icon,
+.calender-icon,
+.light-icon {
+  width: clamp(140px, 24vw, 200px);
+  height: auto;
 }
 
-.cassette-icon {
-    width: 200px;
-    height: 200px;
-    padding: 0;
-}
-
-.cassette-icon:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
-}
-
-.calender-icon {
-    width: 200px;
-    height: 200px;
-    padding: 0;
-}
-
+.radio-icon:hover,
+.cassette-icon:hover,
 .calender-icon:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
-.main-page p{
-    margin: 0;
-    font-size: 22px;
-} 
-
-
-h1{
-    margin: 0;
-    padding: 20px;
-    font-size: 40px;
+.main-page p {
+  margin: 0;
+  font-size: clamp(16px, 3vw, 20px);
 }
 
+h1 {
+  margin: 0;
+  padding: clamp(12px, 3vw, 20px);
+  font-size: clamp(28px, 6vw, 40px);
+}
+
+@media (max-width: 768px) {
+  .main-page {
+    min-height: 50vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .buttons {
+    grid-template-columns: 1fr;
+  }
+}

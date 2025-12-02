@@ -7,8 +7,6 @@ import { useSongRecommender } from '../../hooks/useSongRecommender';
 import RadioHeader from '../Radio/RadioHeader';
 import RadioFooter from '../Radio/RadioFooter';
 import { songDatabase } from '../../data/songData';
-//import AnimatedPage from '../../components/AnimatedPage';
-
 
 const Radio = () => {
   const [loading, setLoading] = useState(false);
@@ -43,17 +41,17 @@ const Radio = () => {
   return (
     <>
       <RadioHeader />
-        <div className='radio-container'>
-          <h1>오늘 당신의 감정 주파수는 <br></br>몇MHz인가요?</h1>
-          <EmotionSelector onSelectEmotion={handleEmotionSelect} />
-          {loading && <p>노래를 추천 중입니다...</p>}
-          <EmotionModal
-            isOpen={isEmotionModalOpen}
-            onClose={closeEmotionModal}
-            onConfirm={handleRecommendation}
-            mood={selectedEmotion}
-          />
-        </div>
+      <div className="radio-container">
+        <h1>지금 감정에 맞는 음악을 라디오처럼 골라줄게요</h1>
+        <EmotionSelector onSelectEmotion={handleEmotionSelect} />
+        {loading && <p>추천 중입니다...</p>}
+        <EmotionModal
+          isOpen={isEmotionModalOpen}
+          onClose={closeEmotionModal}
+          onConfirm={handleRecommendation}
+          mood={selectedEmotion}
+        />
+      </div>
       <RadioFooter />
     </>
   );

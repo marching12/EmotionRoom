@@ -4,12 +4,7 @@ import type { MoodStorage } from '../../types/Mood';
 import { moodToKorean } from '../../data/moodTranslations';
 import './MostFeltMood.css';
 
-interface MostFeltMoodProps {
-  mood: "joy" | "sadness" | "angry" | "relaxed" | "happiness" | "anxiety" | "depression" | "tiredness";
-}
-
-
-const MostFeltMood: React.FC<MostFeltMoodProps> = () => {
+const MostFeltMood: React.FC = () => {
   const [moodRank, setMoodRank] = useState<[string, number][]>([]);
 
   useEffect(() => {
@@ -35,18 +30,18 @@ const MostFeltMood: React.FC<MostFeltMoodProps> = () => {
 
   return (
     <div className="most-felt-mood-container">
-      <h2>이 달의 감정</h2>
+      <h2>이번 달 감정 TOP 3</h2>
       <div className="mood-rank-list">
         {moodRank.length > 0 ? (
           <ol>
             {moodRank.map(([mood, count], index) => (
               <li key={mood}>
-                <span>{index + 1}등:</span> {moodToKorean[mood]} ({count}번)
+                <span>{index + 1}위</span> {moodToKorean[mood]} ({count}회)
               </li>
             ))}
           </ol>
         ) : (
-          <p>이번 달 감정 기록이 없습니다.</p>
+          <p>아직 기록된 감정이 없어요.</p>
         )}
       </div>
     </div>

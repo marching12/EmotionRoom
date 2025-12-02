@@ -10,12 +10,12 @@ interface SongModalProps {
 }
 
 const SongModal: React.FC<SongModalProps> = ({ song, mood, onClose }) => {
-  
   return (
-    <div className="song-modal-overlay">
-      <div className="song-modal-content">
+    <div className="song-modal-overlay" onClick={onClose}>
+      <div className="song-modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="song-modal-header">
-          {mood && <p>이 날의 감정: {moodToKorean[mood]}</p>}
+          {mood && <p>오늘의 감정: {moodToKorean[mood]}</p>}
+          <button className="song-close-icon" aria-label="닫기" onClick={onClose}>×</button>
         </div>
         <img src={song.artworkUrl100.replace('100x100bb', '1000x1000bb')} alt={song.trackName} />
         <h2>{song.trackName}</h2>

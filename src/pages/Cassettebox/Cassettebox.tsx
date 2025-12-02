@@ -9,7 +9,7 @@ import CassetteBoxFooter from '../Cassettebox/CassetteBoxFooter';
 const Cassettebox = () => {
   const [savedSongs, setSavedSongs] = useState<Record<string, Song[]>>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedMood, setSelectedMood] = useState<'joy' | 'sadness'| 'angry' |'relaxed' | 'happiness' | 'anxiety' | 'depression' | 'tiredness' | null>(null);
+  const [selectedMood, setSelectedMood] = useState<'joy' | 'sadness' | 'angry' | 'relaxed' | 'happiness' | 'anxiety' | 'depression' | 'tiredness' | null>(null);
 
   useEffect(() => {
     const songs = localStorage.getItem('savedSongs');
@@ -18,7 +18,7 @@ const Cassettebox = () => {
     }
   }, []);
 
-  const openModal = (mood: 'joy' | 'sadness'| 'angry' |'relaxed' | 'happiness' | 'anxiety' | 'depression' | 'tiredness') => {
+  const openModal = (mood: 'joy' | 'sadness' | 'angry' | 'relaxed' | 'happiness' | 'anxiety' | 'depression' | 'tiredness') => {
     setSelectedMood(mood);
     setIsModalOpen(true);
   };
@@ -37,28 +37,28 @@ const Cassettebox = () => {
     }
   };
 
-  const moods: ('joy' | 'sadness'| 'angry' |'relaxed' | 'happiness' | 'anxiety' | 'depression' | 'tiredness')[] = ['joy', 'sadness', 'angry', 'relaxed', 'happiness', 'anxiety', 'depression', 'tiredness'];
+  const moods: ('joy' | 'sadness' | 'angry' | 'relaxed' | 'happiness' | 'anxiety' | 'depression' | 'tiredness')[] = ['joy', 'sadness', 'angry', 'relaxed', 'happiness', 'anxiety', 'depression', 'tiredness'];
 
   return (
     <>
-    <CassetteBoxHeader />
-    <div className="cassettebox-container">
-      <h1>그 날의 감정이 담긴 노래, <br></br>다시 꺼내 볼까요?</h1>
-      <div className="cassette-grid">
-        {moods.map(mood => (
-          <MoodCassetteButton key={mood} mood={mood} onClick={openModal} />
-        ))}
+      <CassetteBoxHeader />
+      <div className="cassettebox-container">
+        <h1>마음에 남은 선곡을 카세트에 담아뒀어요</h1>
+        <div className="cassette-grid">
+          {moods.map(mood => (
+            <MoodCassetteButton key={mood} mood={mood} onClick={openModal} />
+          ))}
+        </div>
+        {isModalOpen && selectedMood && (
+          <SavedSongsModal
+            songs={savedSongs[selectedMood] || []}
+            mood={selectedMood}
+            onClose={closeModal}
+            onDelete={handleDelete}
+          />
+        )}
       </div>
-      {isModalOpen && selectedMood && (
-        <SavedSongsModal
-          songs={savedSongs[selectedMood] || []}
-          mood={selectedMood}
-          onClose={closeModal}
-          onDelete={handleDelete}
-        />
-      )}
-    </div>
-    <CassetteBoxFooter />
+      <CassetteBoxFooter />
     </>
   );
 };

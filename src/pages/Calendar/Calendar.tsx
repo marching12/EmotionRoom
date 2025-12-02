@@ -14,7 +14,7 @@ const CalendarPage = () => {
     <>
     <CalendarHeader />
     <div className="calendar-content">
-      {mostFeltMood && <MostFeltMood mood={mostFeltMood} />}
+      {mostFeltMood && <MostFeltMood />}
       <CalendarView />
     </div>
     <CalendarFooter />

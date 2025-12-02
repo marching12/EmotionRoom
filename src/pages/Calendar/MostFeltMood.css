@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: clamp(12px, 3vw, 20px);
   margin-right: 0px;
-  margin-top: 80px;
-  margin-left: 50px;
+  margin-top: clamp(20px, 4vw, 40px);
+  margin-left: clamp(0px, 4vw, 50px);
   background-color: #D4C9BD;
   border-radius: 15px;
-  width: 250px;
-  height: 500px;
+  width: min(90vw, 260px);
+  max-height: 500px;
   color: #524438;
 }
 

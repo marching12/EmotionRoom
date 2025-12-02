@@ -1,56 +1,53 @@
 .radio-section {
-  background-color: #D6EAF1;
-  border: 10px solid #83AEBC;
-  width: 700px;
-  height: 440px;
+  background-color: #d6eaf1;
+  border: 10px solid #83aebc;
+  width: min(90vw, 700px);
+  min-height: 360px;
   border-radius: 60px;
   position: relative;
-  margin: 50px;
-  margin-top: 120px;
-  margin-bottom: 150px;
+  margin: clamp(20px, 5vw, 60px) auto clamp(40px, 8vw, 120px);
+  padding-bottom: clamp(60px, 12vw, 100px);
 }
 
-.radio-top{
-    width: 700px;
-    height: 120px;
-    margin-top: 0;
-    display: flex;
-    justify-content: center; 
-    align-items: center;   
-    flex-direction: column;
-    border-bottom: 10px solid #83AEBC;
-    
+.radio-top {
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 10px solid #83aebc;
 }
 
 .antenna {
-  width: 280px;
+  width: clamp(180px, 40vw, 280px);
   height: 10px;
-  background-color: #83AEBC;
+  background-color: #83aebc;
   position: absolute;
   top: -10px;
-  left: 100px;
+  left: clamp(40px, 12vw, 100px);
   transform: rotate(-18deg);
   transform-origin: left center;
 }
 
 .dial {
-  width: 140px;
+  width: clamp(120px, 28vw, 140px);
   height: 30px;
-  background-color: #83AEBC;
+  background-color: #83aebc;
   border-radius: 15%;
   position: absolute;
-  top: -30px;       
-  right: 40px;
-  overflow: hidden; 
-  background-image: linear-gradient(to right, #C0DCE7 1px, transparent 1px);
-  background-size: 10px 100%; 
+  top: -30px;
+  right: clamp(20px, 6vw, 40px);
+  overflow: hidden;
+  background-image: linear-gradient(to right, #c0dce7 1px, transparent 1px);
+  background-size: 10px 100%;
   transition: background-position-x 0.2s ease-out;
 }
 
 .radio-buttons {
-  background-color: #C0DCE7;
-  border: 8px solid #83AEBC;
-  width: 640px;
+  background-color: #c0dce7;
+  border: 8px solid #83aebc;
+  width: 90%;
   margin-top: 0;
   border-radius: 8px;
   display: flex;
@@ -58,33 +55,34 @@
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  padding: 0 clamp(8px, 2vw, 12px);
 }
 
 .radio-buttons button {
-    margin-top: 0px;
-    font-size: 16px;
-    color:#83AEBC;
-    font-weight: 600;
-    position: relative;
-
-    background-color: transparent;
+  margin-top: 0;
+  font-size: clamp(12px, 3vw, 16px);
+  color: #83aebc;
+  font-weight: 600;
+  position: relative;
+  background-color: transparent;
+  padding: clamp(8px, 2vw, 10px) clamp(4px, 2vw, 6px);
 }
 
 .blank {
-    height: 50px;
-    width: 50px;
-    border-right: 5px solid #83AEBC;
+  height: 50px;
+  width: 50px;
+  border-right: 5px solid #83aebc;
 }
 
 .speaker {
-  width: 180px;
-  height: 180px;
-  border: 10px solid #83AEBC;
-  background-color: #C0DCE7;
+  width: clamp(140px, 32vw, 180px);
+  height: clamp(140px, 32vw, 180px);
+  border: 10px solid #83aebc;
+  background-color: #c0dce7;
   border-radius: 50%;
   position: absolute;
-  bottom: 40px;
-  left: 30px;
+  bottom: clamp(24px, 6vw, 40px);
+  left: clamp(16px, 6vw, 30px);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -94,7 +92,7 @@
 .bar {
   width: 8px;
   height: 80%;
-  background-color: #83AEBC;
+  background-color: #83aebc;
   border-radius: 7px;
 }
 
@@ -104,20 +102,19 @@
 .bar:nth-child(4) { height: 80%; }
 .bar:nth-child(5) { height: 45%; }
 
-
 .lines {
   position: absolute;
-  bottom: 60px;
-  right: 50px;
+  bottom: clamp(30px, 8vw, 60px);
+  right: clamp(16px, 6vw, 50px);
   display: flex;
   flex-direction: column;
-  gap: 33px;
+  gap: clamp(18px, 4vw, 33px);
 }
 
 .line {
-  width: 360px;
+  width: clamp(220px, 55vw, 360px);
   height: 12px;
-  background-color: #83AEBC;
+  background-color: #83aebc;
   border-radius: 6px;
 }
 
@@ -126,6 +123,23 @@
   left: 0;
   width: 5px;
   height: 100%;
-  background-color: #83AEBC;
+  background-color: #83aebc;
   transition: left 0.2s ease-out;
+}
+
+@media (max-width: 640px) {
+  .radio-section {
+    padding-bottom: 80px;
+  }
+
+  .radio-buttons {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .blank {
+    display: none;
+  }
 }

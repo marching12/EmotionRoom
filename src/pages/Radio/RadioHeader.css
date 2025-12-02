@@ -1,19 +1,19 @@
 .radio-header{
     background-color: #D6EAF1;
     width: 100%;
-    height: 80px;
+    min-height: 64px;
     display: flex;
     align-items: center;   
     justify-content: flex-end;   
-    color: #524438; 
+    color: #524438;
+    padding: 0 var(--gap);
 }
 
 .radio-header button {
     margin-top: 0;
-    margin-right: 20px;
     background-color: #92B9C6;
-    width: 200px;
-    height: 50px;
+    width: 180px;
+    height: 48px;
     border-radius: 10px;
     font-size: 15px;
     color: white;

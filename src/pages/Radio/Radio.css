@@ -1,29 +1,19 @@
 .radio-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center; 
-    align-items: center;   
-    flex-direction: column;
-    text-align: center;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: clamp(16px, 4vw, 32px);
+  gap: clamp(12px, 3vw, 24px);
 }
 
-.radio-container h1{
-    color: #9CCED9; 
-    font-weight: 800;
-    font-size: 40px;
-    margin-top: 50px
-};
-
-.play-button {
-    background-color: #9CCED9;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-top: 20px;
+.radio-container h1 {
+  color: #9cced9;
+  font-weight: 800;
+  font-size: clamp(26px, 6vw, 40px);
+  margin-top: 20px;
 }
 

@@ -6,7 +6,7 @@ export const useSongRecommender = () => {
     const trackIds = songDatabase[emotion];
 
     if (!trackIds || trackIds.length === 0) {
-      console.warn(`해당하는 노래가 없습니다: ${emotion}`);
+      console.warn(`해당 감정에 대한 곡 데이터가 없습니다: ${emotion}`);
       return null;
     }
 
