@@ -1,69 +1,34 @@
-# React + TypeScript + Vite
+# EmotionRoom
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+감정을 기록하고 그때의 무드에 맞는 음악을 추천·저장·회고하는 웹 앱입니다.  
+React + TypeScript + Vite 기반으로, iTunes API를 통해 곡 정보를 가져옵니다.
 
-Currently, two official plugins are available:
+## 주요 기능
+- **감정 라디오**: 감정(기쁨/슬픔/분노/여유/행복/불안/우울/피곤) 버튼을 선택하면 해당 무드의 곡을 랜덤 추천합니다.
+- **추천 확인 & 저장**: 추천 결과(자켓, 제목, 아티스트, 미리듣기)를 확인하고, 마음에 들면 `localStorage`에 저장(카세트박스에 분류)할 수 있습니다.
+- **카세트박스**: 감정별로 저장한 곡 목록을 모달로 확인하고 개별 삭제할 수 있습니다.
+- **달력 기록**: 날짜별 감정/곡 기록을 아이콘으로 표시하고, 클릭 시 당시 저장된 곡 정보를 모달로 조회합니다. 이번 달 감정 TOP 3도 함께 보여줍니다.
+- **모바일 대응**: 주요 페이지·모달·그리드에 반응형 레이아웃 적용.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 실행 방법
+```bash
+npm install
+npm run dev
 ```
+- 기본 접속: http://localhost:5173  
+- 프로덕션 빌드 확인: `npm run build` 후 `npm run preview`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 기술 스택
+- React 19, TypeScript, Vite
+- react-router-dom, react-calendar, date-fns
+- 스타일: 개별 CSS 파일(페이지/컴포넌트 단위), 반응형 미디어 쿼리 적용
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 데이터 및 저장소
+- 곡 데이터: `src/data/songData.ts`의 iTunes 트랙 ID 목록을 사용하여 조회
+- 감정/곡 기록 저장: 브라우저 `localStorage`
+  - `moods`: 날짜별 감정·곡 기록
+  - `savedSongs`: 감정별 저장곡 목록
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 주의사항
+- iTunes API 호출이 필요하므로 네트워크가 차단된 환경에서는 추천이 동작하지 않습니다.
+- `localStorage` 기반이라 브라우저/기기 변경 또는 스토리지 초기화 시 기록이 사라집니다.
